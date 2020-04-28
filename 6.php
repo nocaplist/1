@@ -39,7 +39,7 @@ $headers[] = "Origin: http://bonstri.tri.co.id";
 $headers[] = "DNT: 1";
 $headers[] = "Connection: close";
 $headers[] = "Referer: http://bonstri.tri.co.id/login?returnUrl=%2Fhome";
-$headers[] = "Cookie: TS0100d305=0162c9cb494eec12bb5ebd5a0cf9d600d03ff497d0dd6544efb7c8bcd36ba3bf7656a4845cbaa6e8685ebdbda2e6f9b0ded9926243";
+$headers[] = "Cookie: TS0100d305=0162c9cb499b7f62aab8de941695e86386b5c9b9a6046c22cbb00b7f2135ddba3bf26270ceca7bb0d51383ef94237a4f0a711ce6ab";
 $getotp = request($url, $data, $headers);
 
 echo "OTP: ";
@@ -60,7 +60,7 @@ $headers[] = "Origin: http://bonstri.tri.co.id";
 $headers[] = "DNT: 1";
 $headers[] = "Connection: close";
 $headers[] = "Referer: http://bonstri.tri.co.id/login?returnUrl=%2Fhome";
-$headers[] = "Cookie: TS0100d305=0162c9cb494eec12bb5ebd5a0cf9d600d03ff497d0dd6544efb7c8bcd36ba3bf7656a4845cbaa6e8685ebdbda2e6f9b0ded9926243";
+$headers[] = "Cookie: TS0100d305=0162c9cb499b7f62aab8de941695e86386b5c9b9a6046c22cbb00b7f2135ddba3bf26270ceca7bb0d51383ef94237a4f0a711ce6ab";
 $login = request($url, $data, $headers);
 $bearer = getstr($login, '"access_token":"','"');
 
@@ -78,9 +78,9 @@ $headers[] = "Content-Length: 2";
 $headers[] = "Origin: http://bonstri.tri.co.id";
 $headers[] = "Connection: close";
 $headers[] = "Referer: http://bonstri.tri.co.id/voucherku";
-$headers[] = "Cookie: _ga=GA1.3.2053671532.1587780555; _gid=GA1.3.888559198.1587780555; TS0100d305=0162c9cb49e0d157a2c80ae96556c73d3bea058f3c536b787d6659d580e73a70a6f3a02af9a84533df5bea7f93242a4490a524d4b3; _gat_gtag_UA_128593534_1=1";
+$headers[] = "Cookie: _ga=GA1.3.1313405610.1588038183; _gid=GA1.3.2003925376.1588038183; TS0100d305=0162c9cb499b7f62aab8de941695e86386b5c9b9a6046c22cbb00b7f2135ddba3bf26270ceca7bb0d51383ef94237a4f0a711ce6ab; _gat_gtag_UA_128593534_1=1";
 $gettrx = request($url, $data, $headers);
-$trxid = getstr($gettrx, 'GB 1 Hari (Jam 01:00 - 12:00)","rewardTransactionId":"','"');
+$trxid = getstr($gettrx, '6GB (01AM-12PM) 3 Days","rewardTransactionId":"','"');
 
 tembak:
 echo "[?] Tembak Berapa : ";
@@ -88,7 +88,7 @@ $loop = trim(fgets(STDIN));
 for ($x = 0; $x < $loop; $x++) {
 $rand = substr(str_shuffle(str_repeat('0123456789', mt_rand(1,3))), 1, 3);
 $url = "http://bonstri.tri.co.id/api/v1/voucherku/get-voucher-code";
-$data = "{\"rewardId\":\"1605190$rand\",\"rewardTransactionId\":\"$trxid\"}";
+$data = "{\"rewardId\":\"16051901\",\"rewardTransactionId\":\"$trxid\"}";
 $headers = array();
 $headers[] = "Host: bonstri.tri.co.id";
 $headers[] = "Accept: application/json, text/plain, */*";
@@ -99,7 +99,7 @@ $headers[] = "Origin: http://bonstri.tri.co.id";
 $headers[] = "Referer: http://bonstri.tri.co.id/voucherku";
 $headers[] = "Accept-Encoding: gzip, deflate";
 $headers[] = "Accept-Language: id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,ms;q=0.6";
-$headers[] = "Cookie: _ga=GA1.3.770946611.1584431943; _gid=GA1.3.168000598.1584431943; TS0100d305=0162c9cb490990834a7708193e20bbd775eae933ce3e50f34503ef106b69d7ceacc5ecf66e5fb6ca7a51870037152284bafaf2991d";
+$headers[] = "Cookie: _ga=GA1.3.1313405610.1588038183; _gid=GA1.3.2003925376.1588038183; TS0100d305=0162c9cb499b7f62aab8de941695e86386b5c9b9a6046c22cbb00b7f2135ddba3bf26270ceca7bb0d51383ef94237a4f0a711ce6ab; _gat_gtag_UA_128593534_1=1";
 $headers[] = "Connection: close";
 $exec = request($url, $data, $headers);
 if(strpos($exec, '"data":"Success"') !== false)
